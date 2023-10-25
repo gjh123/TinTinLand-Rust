@@ -1,17 +1,11 @@
-use crate::print_chars::print_chars_az;
 
-mod print_chars {
-    pub mod print_chars_az;
-}
+mod print_az;
+mod print_chars;
 
 fn main() {
     // a ~ Z
-    for i in ('Z'..='a').rev() {
-        if i != 'Z' {
-            println!("i == {i}");
-        }
-    }
+    print_az::print_chars_az();
 
     //子模块 A ~ z
-    print_chars_az::print_chars_az()
+    print_chars::print_a_to_z();
 }
