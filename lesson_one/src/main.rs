@@ -1,11 +1,10 @@
-
-mod print_az;
+mod print_az_rev;
 mod print_chars;
 
 fn main() {
-    // a ~ Z
-    print_az::print_chars_az();
+    println!("=====  a ~ Z  =====");
+    print_az_rev::az_rev();
 
-    //子模块 A ~ z
-    print_chars::print_a_to_z();
+    println!("=====  A ~ z  =====");
+    print_chars::print_az();
 }
