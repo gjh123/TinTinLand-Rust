@@ -78,8 +78,8 @@ fn main() {
     let s = "Hello";
     let s1 = &s;
     let s2 = s1;
-    println!("s1=={s1}");
-    println!("s2=={s2}");
+    println!("s1=={s1}"); // s1==Hello
+    println!("s2=={s2}");// s2==Hello
 }
 ```
 
