@@ -27,15 +27,17 @@ println!("{b}");
   避免了多线程下的数据竞争。
 
 ```Rust
-fn main() {
-    let mut s = 10; // 注意s 必须是可变的（mut）下文才可以使用可变引用
-    let res = sum(&mut s); // &mut 表示可变引用 可以修改数据
-    println!("{}", res); // 30
+fn str_push(s: &mut String) {
+    s.push_str("Rust");
 }
 
-pub fn sum(i: &mut i32) -> i32 {
-    *i += 20;
-    *i
+fn main() {
+    // 注意s 必须是可变的（mut）下文才可以使用可变引用
+    let mut s = String::from("Hello");
+    // &mut s表示可变引用 可以修改数据
+    str_push(&mut s);
+
+    println!("{s}") // HelloRust
 }
 ```
 
