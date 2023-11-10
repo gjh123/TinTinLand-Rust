@@ -1,6 +1,6 @@
-#[derive(Debug)]
+// #[derive(Debug)]
 pub struct Club {
-    pub(crate) id: u32,
-    pub(crate) name: String,
-    pub(crate) members: Vec<u32>,
+    pub id: u32,
+    pub name: String,
+    pub members: Vec<u32>,
 }

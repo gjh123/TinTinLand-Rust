@@ -6,13 +6,14 @@ mod student;
 pub use class::Class;
 pub use club::Club;
 pub use course::Course;
+use std::collections::HashMap;
 pub use student::Student;
 
 pub struct StudentManagementSystem {
     students: Vec<Student>,
     classes: Vec<Class>,
     courses: Vec<Course>,
-    clubs: Vec<Club>,
+    clubs: HashMap<u32, Club>,
 }
 
 impl StudentManagementSystem {
@@ -22,7 +23,7 @@ impl StudentManagementSystem {
             students: Vec::new(),
             classes: Vec::new(),
             courses: Vec::new(),
-            clubs: Vec::new(),
+            clubs: HashMap::new(),
         }
     }
 
@@ -83,12 +84,12 @@ impl StudentManagementSystem {
             name,
             members: Vec::new(),
         };
-        self.clubs.push(club);
+        self.clubs.insert(id, club);
     }
 
     // 添加学生到社团
     pub fn add_student_to_club(&mut self, club_id: u32, student_id: u32) -> bool {
-        if let Some(club) = self.clubs.iter_mut().find(|club| club.id == club_id) {
+        if let Some(club) = self.clubs.get_mut(&club_id) {
             club.members.push(student_id);
             true
         } else {
@@ -98,9 +99,6 @@ impl StudentManagementSystem {
 
     // 查询社团成员
     pub fn get_club_members(&self, club_id: u32) -> Option<&Vec<u32>> {
-        self.clubs
-            .iter()
-            .find(|club| club.id == club_id)
-            .map(|club| &club.members)
+        self.clubs.get(&club_id).map(|club| &club.members)
     }
 }
