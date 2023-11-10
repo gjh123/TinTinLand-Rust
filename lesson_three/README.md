@@ -1,4 +1,5 @@
 ## 第三课作业描述
+学生管理系统：只对学生信息进行了CRUD
 ## 运行
 ```rust
 cd lesson_three/
