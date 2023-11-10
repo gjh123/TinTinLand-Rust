@@ -10,6 +10,7 @@ cargo run
 - Updated Student: Elon Musk2 (ID: 1, Age：30)
 - Deleted Student：success
 - ID：1 Student not found
+- Club Member: 1
 
 
 

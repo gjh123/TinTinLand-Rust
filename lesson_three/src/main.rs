@@ -1,11 +1,12 @@
 mod student_management_system;
 
-use student_management_system::{Class, Course, Student, StudentManagementSystem as SMS};
+use student_management_system::{Class, Club, Course, Student, StudentManagementSystem as SMS};
 
 fn main() {
-    // init StudentManagementSystem
+    // Init StudentManagementSystem
     let mut sms = SMS::new();
 
+    // ===== Student ====
     // 添加学生
     let student1 = Student {
         id: 1,
@@ -65,5 +66,19 @@ fn main() {
         println!("Student found: {} (ID: {})", student.name, student.id);
     } else {
         println!("ID：1 Student not found");
+    }
+
+    // =====  Club =====
+    // 创建社团
+    sms.create_club(1, String::from("Programming Club"));
+
+    // 添加学生到社团
+    sms.add_student_to_club(1, 1);
+
+    // 查询社团成员
+    if let Some(members) = sms.get_club_members(1) {
+        for member in members {
+            println!("Club Member: {}", member);
+        }
     }
 }

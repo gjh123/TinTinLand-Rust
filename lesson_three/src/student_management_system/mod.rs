@@ -1,8 +1,10 @@
 mod class;
+mod club;
 mod course;
 mod student;
 
 pub use class::Class;
+pub use club::Club;
 pub use course::Course;
 pub use student::Student;
 
@@ -10,6 +12,7 @@ pub struct StudentManagementSystem {
     students: Vec<Student>,
     classes: Vec<Class>,
     courses: Vec<Course>,
+    clubs: Vec<Club>,
 }
 
 impl StudentManagementSystem {
@@ -19,6 +22,7 @@ impl StudentManagementSystem {
             students: Vec::new(),
             classes: Vec::new(),
             courses: Vec::new(),
+            clubs: Vec::new(),
         }
     }
 
@@ -70,5 +74,33 @@ impl StudentManagementSystem {
         } else {
             false
         }
+    }
+
+    // 创建社团
+    pub fn create_club(&mut self, id: u32, name: String) {
+        let club = Club {
+            id,
+            name,
+            members: Vec::new(),
+        };
+        self.clubs.push(club);
+    }
+
+    // 添加学生到社团
+    pub fn add_student_to_club(&mut self, club_id: u32, student_id: u32) -> bool {
+        if let Some(club) = self.clubs.iter_mut().find(|club| club.id == club_id) {
+            club.members.push(student_id);
+            true
+        } else {
+            false
+        }
+    }
+
+    // 查询社团成员
+    pub fn get_club_members(&self, club_id: u32) -> Option<&Vec<u32>> {
+        self.clubs
+            .iter()
+            .find(|club| club.id == club_id)
+            .map(|club| &club.members)
     }
 }
