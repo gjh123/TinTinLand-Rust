@@ -7,7 +7,7 @@ cargo run
 ```
 ## 结果
 - Student found: Elon Musk (ID: 1,Age：18)
-- Updated Student: Elon Musk2 --updated (ID: 1,Age：30)
+- Updated Student: Elon Musk2 (ID: 1, Age：30)
 - Deleted Student：success
 - ID：1 Student not found
 

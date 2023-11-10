@@ -1,91 +1,12 @@
-struct Student {
-    id: u32,
-    name: String,
-    age: u8,
-    class_id: u32,
-}
+mod student_management_system;
 
-struct Class {
-    id: u32,
-    name: String,
-}
-
-struct Course {
-    id: u32,
-    name: String,
-}
-
-// 定义学生管理系统结构体
-struct StudentManagementSystem {
-    students: Vec<Student>,
-    classes: Vec<Class>,
-    courses: Vec<Course>,
-}
-
-impl StudentManagementSystem {
-    // 创建一个新的学生管理系统
-    fn new() -> Self {
-        Self {
-            students: Vec::new(),
-            classes: Vec::new(),
-            courses: Vec::new(),
-        }
-    }
-
-    // 添加学生
-    fn add_student(&mut self, student: Student) {
-        self.students.push(student);
-    }
-
-    // 添加班级
-    fn add_class(&mut self, class: Class) {
-        self.classes.push(class);
-    }
-
-    // 添加课程
-    fn add_course(&mut self, course: Course) {
-        self.courses.push(course);
-    }
-
-    // 根据学生ID获取学生信息
-    fn get_student(&self, student_id: u32) -> Option<&Student> {
-        self.students
-            .iter()
-            .find(|student| student.id == student_id)
-    }
-
-    // 更新学生信息
-    fn update_student(&mut self, student_id: u32, updated_student: Student) -> bool {
-        if let Some(student) = self
-            .students
-            .iter_mut()
-            .find(|student| student.id == student_id)
-        {
-            *student = updated_student;
-            true
-        } else {
-            false
-        }
-    }
-
-    // 删除学生
-    fn delete_student(&mut self, student_id: u32) -> bool {
-        if let Some(index) = self
-            .students
-            .iter()
-            .position(|student| student.id == student_id)
-        {
-            self.students.remove(index);
-            true
-        } else {
-            false
-        }
-    }
-}
+use student_management_system::{Class, Course, Student, StudentManagementSystem as SMS};
 
 fn main() {
-    let mut sms = StudentManagementSystem::new();
+    // init StudentManagementSystem
+    let mut sms = SMS::new();
 
+    // 添加学生
     let student1 = Student {
         id: 1,
         name: String::from("Elon Musk"),
@@ -113,9 +34,10 @@ fn main() {
         println!("Student not found");
     }
 
+    // 更新学生信息
     let updated_student = Student {
         id: 1,
-        name: String::from("Elon Musk2 --updated"),
+        name: String::from("Elon Musk2"),
         age: 30,
         class_id: 2,
     };
@@ -131,6 +53,7 @@ fn main() {
         println!("Student not found");
     }
 
+    // 删除学生信息
     if let true = sms.delete_student(2) {
         println!("Deleted Student：success");
     } else {
