@@ -16,7 +16,7 @@
 ## 第8题
 - 实现 Add trait
 - 实现一个dynamic_call（动态分发）函数，
-- 接受Trait Object作为参数调用
+- 接受Trait Object作为参数调用对应的实现
 
 ## 运行
 
