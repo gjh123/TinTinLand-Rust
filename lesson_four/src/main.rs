@@ -1,12 +1,10 @@
 mod adder;
-mod trait_object;
+mod dynamic_call;
 
 fn main() {
     // 动态分发
-    trait_object::run();
-
+    dynamic_call::run();
     println!("======================");
-
     // 求和运算
     adder::run();
 }
