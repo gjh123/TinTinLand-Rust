@@ -30,11 +30,11 @@ cargo run
 ## 结果
 
 ```
-TypeA: Called
-TypeB: Called
-TypeC: Called
+Dog: 汪汪
+Cat: 喵喵
+Bird: 叽叽喳喳
 ======================
-Value: 15
+Number Sum is : 15
 ```
 
 
