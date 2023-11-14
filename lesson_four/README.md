@@ -1,12 +1,10 @@
-# 第四课作业描述
-
-> 以下是对附加题的解答
+# 第四课附加题实践
 
 ## 第7题
 
-- 定义了一个 MyTrait trait 和三个不同的类型 TypeA、TypeB 和 TypeC，
+- 定义了一个 Animal trait 和三个不同的类型 Dog、Cat和 Bird，
 
-- 并为它们实现了 MyTrait trait。然后使用枚举 MyEnum 将这三个类型包裹起来，并将它们放入一个 Vec 中。
+- 并为它们实现了 Animal trait。然后使用枚举 Animals 将这三个类型包裹起来，并将它们放入一个 Vec 中。
 
 - 最后对 Vec 进行遍历，并根据具体的类型调用各自的方法。
 
