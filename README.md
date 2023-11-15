@@ -1,2 +1,2 @@
 # RustJob
-TinTinLand Practice
+TinTinLand Rust Practice
