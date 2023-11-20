@@ -43,4 +43,9 @@ match "+" {
 cd lesson_five
 cargo run
 ```
+## 结果
+```rust
+10 + 5 = 15
+10 * 5 = 50
+```
 
