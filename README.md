@@ -2,5 +2,4 @@
 
 
 
-# ![](D:%5CGitHub%5CTinTinLand-Rust%5Ccertificate.jpg)
-
+![certificate](assets/README/certificate.jpg)
